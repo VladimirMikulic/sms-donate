@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS Donate</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.0/css/intlTelInput.css">
+
+  <style>
+    .container {
+      position: relative;
+    }
+
+    .form {
+      margin: auto;
+      margin-top: 25%;
+      max-width: fit-content;
+    }
+
+    #login-btn {
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <form class="form" id="login-form">
+      <div class="field">
+        <label class="label" for="phone-num">Enter your phone number:</label>
+        <div class="control">
+          <input class="input" id="phone-num" name="phone-num" type="tel" required>
+        </div>
+      </div>
+      <button type="submit" id="btn-login" class="button is-info">Submit</button>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.0/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.0/js/utils.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
