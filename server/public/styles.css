@@ -1,0 +1,51 @@
+/* Custom styles */
+body {
+  color: #333;
+}
+
+#firebaseui-container {
+  margin-top: 20vh;
+}
+
+#donate-form {
+  margin: auto;
+  margin-top: 15vh;
+  max-width: 600px;
+  text-align: center;
+}
+
+.regex-slash {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Framework overrides */
+.firebaseui-phone-input-wrapper input {
+  margin: 0 !important;
+}
+
+.firebaseui-phone-input-wrapper label {
+  top: 37px;
+}
+
+.firebaseui-phone-number .firebaseui-country-selector {
+  margin-top: 2rem !important;
+}
+
+.firebaseui-id-phone-confirmation-code {
+  margin: 0 !important;
+  height: 2rem !important;
+}
+
+input.firebaseui-id-phone-confirmation-code:focus,
+.firebaseui-phone-input-wrapper input:focus,
+.firebaseui-phone-input-wrapper input:active {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+#main-nav .nav-wrapper {
+  display: flex !important;
+  justify-content: center;
+}

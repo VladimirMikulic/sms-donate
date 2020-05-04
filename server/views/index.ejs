@@ -6,42 +6,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SMS Donate</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.0/css/intlTelInput.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.css" />
 
-  <style>
-    .container {
-      position: relative;
-    }
-
-    .form {
-      margin: auto;
-      margin-top: 25%;
-      max-width: fit-content;
-    }
-
-    #login-btn {
-      margin: auto;
-    }
-  </style>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.5.0/firebase-ui-auth.js"></script>
 </head>
 
 <body>
+  <noscript>This page requires JavaScript to work.</noscript>
 
-  <div class="container">
-    <form class="form" id="login-form">
-      <div class="field">
-        <label class="label" for="phone-num">Enter your phone number:</label>
-        <div class="control">
-          <input class="input" id="phone-num" name="phone-num" type="tel" required>
+  <!-- Navigation -->
+  <nav id="main-nav">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><strong>SMS Donate</strong></a>
+    </div>
+  </nav>
+
+  <!-- User login modal -->
+  <div id="firebaseui-container"></div>
+
+  <!-- Donation form template -->
+  <template id="donate-form-template">
+    <form id="donate-form" class="col s12">
+      <h4>You are awesome 🚀</h4>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" id="sender-phone" name="sender-phone" required>
         </div>
       </div>
-      <button type="submit" id="btn-login" class="button is-info">Submit</button>
-    </form>
-  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.0/js/intlTelInput.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.0/js/utils.js"></script>
+      <div class="row">
+        <div class="input-field col s1 regex-slash">
+          /
+        </div>
+        <div class="input-field col s10">
+          <input type="text" id="phone-regex" name="phone-regex" required>
+          <label for="phone-regex">To (Regex matching phone number)</label>
+        </div>
+        <div class="input-field col s1 regex-slash">
+          /
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="message" class="materialize-textarea" minlength="5" data-length="100" maxlength="100"
+            required></textarea>
+          <label for="message">Message</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="number" id="amount" name="amount" min="1" step="1" required>
+          <label for="amount">Amount ($)</label>
+        </div>
+      </div>
+
+      <button type="submit" class="waves-effect blue waves-light btn">Donate ❤️</button>
+    </form>
+  </template>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+  <script>
+    // Web app Firebase configuration
+    const firebaseConfig = {
+      apiKey: "<your api key>",
+      authDomain: "sms-donate.firebaseapp.com",
+      databaseURL: "https://sms-donate.firebaseio.com",
+      projectId: "sms-donate",
+      storageBucket: "sms-donate.appspot.com",
+      messagingSenderId: "606187780646",
+      appId: "1:606187780646:web:716a0baaf7aea4bee004e7",
+      measurementId: "G-K39VPZRK9J"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+
+  <!-- Materialize CSS JavaScript dependency -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- Custom JavaScript -->
   <script src="index.js"></script>
 </body>
 
